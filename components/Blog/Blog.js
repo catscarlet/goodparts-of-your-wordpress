@@ -39,20 +39,22 @@ export default {
         prev: function() {
             var self = this;
             if (self.pointer > 0) {
-                //console.log(self.pointer);
+                //console.log('before: ' + self.pointer);
                 self.pointer = self.pointer - self.itemperpage;
                 self.itemlist = self.list.slice(self.pointer, self.pointer + self.itemperpage);
                 self.page--;
             }
+            //console.log('after: ' + self.pointer);
         },
         next: function() {
             var self = this;
-            if (self.pointer < self.count + self.itemperpage) {
-                //console.log(self.pointer);
+            if (self.pointer + self.itemperpage < self.count) {
+                //console.log('before: ' + self.pointer);
                 self.pointer = self.pointer + self.itemperpage;
                 self.itemlist = self.list.slice(self.pointer, self.pointer + self.itemperpage);
                 self.page++;
             }
+            //console.log('after: ' + self.pointer);
         },
         show: function(id, event) {
             var self = this;
