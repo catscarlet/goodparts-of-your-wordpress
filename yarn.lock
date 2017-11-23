@@ -982,6 +982,10 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
+commander@~2.11.0:
+  version "2.11.0"
+  resolved "http://registry.npm.taobao.org/commander/download/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/commondir/download/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -3261,6 +3265,13 @@ uglify-js@^2.8.29:
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
 
+"uglify-js@git+https://github.com/mishoo/UglifyJS2.git#harmony":
+  version "3.1.10"
+  resolved "git+https://github.com/mishoo/UglifyJS2.git#567cb0e4e33f6c967aa66add9dcaf79a34d55fb6"
+  dependencies:
+    commander "~2.11.0"
+    source-map "~0.6.1"
+
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/uglify-to-browserify/download/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
@@ -3384,10 +3395,6 @@ vue-template-es2015-compiler@^1.6.0:
 vue@^2.5.2:
   version "2.5.3"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.3.tgz#e1a3b1f49b6e93e574ce040b95cbc873912fecc1"
-
-vuex@^3.0.1:
-  version "3.0.1"
-  resolved "http://registry.npm.taobao.org/vuex/download/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
 
 watchpack@^1.4.0:
   version "1.4.0"
