@@ -1,0 +1,19 @@
+<template>
+    <div class="mainarea">
+        <div id="content" class="content">
+            <h1>{{ content.title }}</h1>
+            <p>原文链接: <a :href="content.link" target="_blank">{{ content.link }}</a></p>
+            <div id="real-content" class="real-content" v-html="content.content">
+            </div>
+        </div>
+
+        <div id="list" class="list">
+            <ul id="bloglist">
+              <li v-for="(item, index) in itemlist">
+                  <a v-on:click="show(item.ID, $event)" href="#">{{ item.post_title }}</a><br>
+              </li>
+              <p><button type="button" name="button" v-on:click="list">list</button></p>
+            </ul>
+        </div>
+    </div>
+</template>
