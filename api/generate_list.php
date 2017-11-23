@@ -6,7 +6,7 @@ $permalink_pattern = '#(\d\d\d\d)-(\d\d)-(\d\d)#';
 $link_perfix = 'https://blog.catscarlet.com/';
 $link_postfix = '.html';
 
-$query = "SELECT ID, post_date, post_title FROM `wp_posts` WHERE post_status = 'publish'";
+$query = "SELECT ID, post_date, post_title FROM `wp_posts` WHERE post_status = 'publish' and post_title <> ''";
 $result = $mysqli->query($query);
 $list = array();
 
@@ -19,6 +19,21 @@ while ($row = $result->fetch_assoc()) {
 
 $result->free();
 rsort($list);
-$rst = json_encode($list, JSON_UNESCAPED_UNICODE /*+ JSON_PRETTY_PRINT*/);
 
-print_r($rst);
+
+//$rst = json_encode($list, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES /*+ JSON_PRETTY_PRINT*/);
+//echo $rst;
+
+
+
+echo '['."\n";
+foreach ($list as $i => $item) {
+    echo '{';
+    echo '"ID": '.$item['ID'].',"post_date": "'.$item['post_date'].'","post_title": "'.$item['post_title'].'","permalink": "'.$item['permalink'].'"';
+    echo '}';
+    if ($i != count($list) - 1) {
+        echo ',';
+    }
+    echo "\n";
+}
+echo ']';
