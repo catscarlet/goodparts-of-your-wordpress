@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>20171103</title>
+    <head>
+        <meta charset="utf-8">
+        <title>The Good Parts</title>
+        <link rel="shortcut icon" href="favicon.ico" />
+    </head>
 
-</head>
+    <body>
+        <div id="app" style="width: 100%; max-width: 1200px; min-width: 1200px; margin: 0 auto; overflow: hidden;">
+            <div id="title-zone" style="padding-left: 20px; padding-right: 20px;">
+                <div style="float: right;">
+                    <img src="./image/Ham_Shankx84.png" alt="logo">
+                </div>
+                <h1>The Good Parts</h1>
+                <p>
+                    - Description here</p>
+            </div>
+            <hr>
 
-<body>
-    <div id="app" style="width: 100%;    max-width: 1200px;    min-width: 1200px;    margin: 0 auto;    overflow: hidden;">
-        <div id="title-zone">
-            <h1>Index Title</h1>
-            <p>route.params.id {{ $route.params.id }}</p>
+            <router-view></router-view>
+
         </div>
-        <hr>
 
-        <router-view></router-view>
+        <script src="./dist/build.js"></script>
 
-
-    </div>
-
-    <script src="./dist/build.js"></script>
-
-    <!--
-    <script src="index.js"></script>
-    <script src="router.js"></script>
--->
-
-</body>
+    </body>
 
 </html>
