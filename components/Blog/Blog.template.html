@@ -1,18 +1,49 @@
 <template>
     <div class="mainarea">
         <div id="content" class="content">
-            <h1>{{ content.title }}</h1>
-            <p>原文链接: <a :href="content.link" target="_blank">{{ content.link }}</a></p>
-            <div id="real-content" class="real-content" v-html="content.content">
+            <div v-if="content.title" class="title-zone">
+                <h1>{{ content.title }}</h1>
+                <hr>
             </div>
+
+            <div id="real-content" v-if="content.title" class="real-content" v-html="content.content"></div>
+
+                <div v-else="v-else">
+                    <div>
+                        <img style="border-radius: 15px 15px;margin-top: 100px; margin-bottom: 100px;" src="../image/snap495.jpg" alt="点击右侧的文章名">
+                    </div>
+                </div>
+
+            <div v-if="content.link" class="title-zone">
+                <hr>
+                <em>原文链接:
+                    <a :href="content.link" target="_blank">{{ content.link }}</a>
+                </em>
+            </div>
+
         </div>
 
         <div id="list" class="list">
+
             <ul id="bloglist">
-              <li v-for="(item, index) in itemlist">
-                  <a v-on:click="show(item.ID, $event)" href="#">{{ item.post_title }}</a><br>
-              </li>
-              <p><button type="button" name="button" v-on:click="list">list</button></p>
+                <div class="list-bar">
+                    <div class="list-bar-button">
+                        <a v-on:click="prev" href="#">上一页</a>
+                    </div>
+                    <div class="list-bar-nav">
+                        <span>{{page}}</span>
+                    </div>
+                    <div class="list-bar-button">
+                        <a v-on:click="next" href="#">下一页</a>
+                    </div>
+                </div>
+
+                <li v-for="(item, index) in itemlist">
+                    <p>
+                        <a v-on:click="show(item.ID, $event)" href="#">{{ item.post_title }}</a>
+                    </p>
+                </li>
+
             </ul>
         </div>
     </div>

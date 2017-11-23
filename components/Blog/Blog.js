@@ -19,57 +19,56 @@ export default {
             content: {
                 'title': '',
                 'link': '',
-                'content': '',
+                'content': ''
             },
-            itemlist: [{
-                'ID': '2930',
-                'post_date': '2017-10-18 02:32:21',
-                'post_title': '社交网络断链',
-                'permalink': 'https:\/\/blog.catscarlet.com\/201710182930.html'
-            }, {
-                'ID': '2916',
-                'post_date': '2017-09-27 22:24:07',
-                'post_title': '从北京联通开始大规模部署不正规的运营商级NAT，谈互联网和运营商',
-                'permalink': 'https:\/\/blog.catscarlet.com\/201709272916.html'
-            }, {
-                'ID': '2898',
-                'post_date': '2017-09-23 15:58:16',
-                'post_title': '变得不好玩的魔兽世界',
-                'permalink': 'https:\/\/blog.catscarlet.com\/201709232898.html'
-            }, {
-                'ID': '2887',
-                'post_date': '2017-08-18 15:28:10',
-                'post_title': '百度想与作业帮撇清关系……呢',
-                'permalink': 'https:\/\/blog.catscarlet.com\/201708182887.html'
-            }, {
-                'ID': '2882',
-                'post_date': '2017-08-15 20:29:39',
-                'post_title': '一键删除微博 oneClickRemoveWeiboPost',
-                'permalink': 'https:\/\/blog.catscarlet.com\/201708152882.html'
-            }]
+            list: [],
+            'pointer': 0,
+            itemlist: [],
+            count: 0,
+            itemperpage: 8,
+            page: 1
         };
     },
 
     created() {
-        this.list();
+        this.getlist();
     },
     watch: {
-        // 如果路由有变化，会再次执行该方法
-        '$route': 'list'
+        '$route': 'getlist'
     },
     methods: {
-        list: function(id, event) {
+        getlist: function(id, event) {
             var self = this;
             this.$axios.get('./api/readlist.php')
                 .then(function(response) {
-                    console.log(response.data);
-                    self.itemlist = response.data;
+                    //console.log(response.data);
+                    self.list = response.data;
+                    self.count = self.list.length;
+                    self.itemlist = self.list.slice(self.pointer, self.itemperpage);
+                    //console.log(self.itemlist);
                 })
                 .catch(function(error) {
-                    console.log(error);
+                    //console.log(error);
                 });
         },
-        test: function(message, event) {},
+        prev: function() {
+            var self = this;
+            if (self.pointer > 0) {
+                //console.log(self.pointer);
+                self.pointer = self.pointer - self.itemperpage;
+                self.itemlist = self.list.slice(self.pointer, self.pointer + self.itemperpage);
+                self.page--;
+            }
+        },
+        next: function() {
+            var self = this;
+            if (self.pointer < self.count + self.itemperpage) {
+                //console.log(self.pointer);
+                self.pointer = self.pointer + self.itemperpage;
+                self.itemlist = self.list.slice(self.pointer, self.pointer + self.itemperpage);
+                self.page++;
+            }
+        },
         show: function(id, event) {
             var self = this;
             this.$axios.get('./api/get_content.php?id=' + id)
@@ -77,23 +76,41 @@ export default {
                     self.draw(id, response.data.content);
                 })
                 .catch(function(error) {
-                    console.log(error);
+                    //console.log(error);
                 });
         },
         draw: function(id, content) {
             var self = this;
-            this.itemlist.forEach(function(v, i) {
+            this.list.forEach(function(v, i) {
                 if (v.ID == id) {
-                    console.log(v.ID);
+                    //console.log(v.ID);
                     //console.log(v.post_title);
-                    console.log(v.permalink);
+                    //console.log(v.permalink);
                     self.content.title = v.post_title;
                     self.content.link = v.permalink;
                 }
             });
             //console.log(content);
             var contentp = this.$autop(content);
-            console.log(contentp);
+            //console.log(contentp);
+            if (contentp.indexOf('[caption') >= 0) {
+                //console.log('contentps中包含caption');
+
+                var regexp1 = new RegExp(/\[caption .*\"\]/, 'g');
+                var regexp2 = new RegExp(/(\<img.*\>)(.*)\[\/caption\]/, 'g');
+
+                //console.log(contentp.match(regexp1));
+                contentp = contentp.replace(regexp1, '<br>');
+
+                //console.log(contentp.match(regexp2));
+                contentp = contentp.replace(regexp2, function(match, p1, p2) {
+                    //console.log(p1);
+                    //console.log(p2);
+                    return p1 + '<br>' + p2;
+
+                });
+
+            }
             this.content.content = contentp;
         }
     }
