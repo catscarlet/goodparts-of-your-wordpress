@@ -1,6 +1,7 @@
 <?php
 
 include_once 'config.php';
+include_once 'logrecorder.php';
 
 $id = $_GET['id'];
 
