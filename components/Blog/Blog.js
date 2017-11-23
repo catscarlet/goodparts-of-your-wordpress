@@ -1,18 +1,3 @@
-/*
-import store from '../vuex/index.js';
-
-import Vue from 'vue';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-
-
-import {
-    mapGetters,
-    mapActions
-} from 'vuex';
-*/
-
 export default {
     data: function() {
         return {
