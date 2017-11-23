@@ -20,7 +20,7 @@ while ($row = $result->fetch_assoc()) {
         $permalink = $matches[1].$matches[2].$matches[3].$row['ID'];
         $row['permalink'] = $link_perfix.$permalink.$link_postfix;
     } else {
-        $permalink = null;
+        $row['permalink'] = null;
     }
 
     $list[] = $row;
