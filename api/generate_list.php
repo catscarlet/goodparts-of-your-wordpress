@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: text/json');
+
 include_once 'config.php';
 
 $permalink_pattern = '#(\d\d\d\d)-(\d\d)-(\d\d)#';
