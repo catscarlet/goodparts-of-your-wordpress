@@ -28,19 +28,19 @@
             <ul id="bloglist">
                 <div class="list-bar">
                     <div class="list-bar-button">
-                        <a v-on:click="prev" href="#">上一页</a>
+                        <a v-on:click="prev" href="javascript:void(0)">上一页</a>
                     </div>
                     <div class="list-bar-nav">
                         <span>{{page}}</span>
                     </div>
                     <div class="list-bar-button">
-                        <a v-on:click="next" href="#">下一页</a>
+                        <a v-on:click="next" href="javascript:void(0)">下一页</a>
                     </div>
                 </div>
 
                 <li v-for="(item, index) in itemlist">
                     <p>
-                        <a v-on:click="show(item.ID, $event)" href="#">{{ item.post_title }}</a>
+                        <a v-on:click="show(item.ID, $event)" href="javascript:void(0)">{{ item.post_title }}</a>
                     </p>
                 </li>
 
