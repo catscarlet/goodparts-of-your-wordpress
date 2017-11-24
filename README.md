@@ -1,4 +1,4 @@
-# The Good parts from wordpress
+# The good parts of your wordpress
 
 这个项目是用来展示你博客中精选出来的文章用的。项目名取自 **O'Reilly** 的梗：**The Good Parts**。
 
