@@ -1,6 +1,6 @@
 <?php
 
-$log['REQUEST_TIME'] = $_SERVER['REQUEST_TIME'];
+$log['REQUEST_TIME'] = date('c', $_SERVER['REQUEST_TIME']);
 $log['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
 $log['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR'];
 $log['HTTP_USER_AGENT'] = $_SERVER['HTTP_USER_AGENT'];
