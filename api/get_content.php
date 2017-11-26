@@ -5,7 +5,7 @@ include_once 'logrecorder.php';
 
 /*
 if (array_key_exists('HTTP_REFERER', $_SERVER) && 'articles.catscarlet.com' != parse_url($_SERVER['HTTP_REFERER'])['host']) {
-    header('HTTP/1.0 403 Forbidden');
+    http_response_code(403);
     $result = [];
     $result['result'] = 1;
     $result['content'] = $_SERVER['HTTP_REFERER'];
@@ -16,7 +16,7 @@ if (array_key_exists('HTTP_REFERER', $_SERVER) && 'articles.catscarlet.com' != p
 }
 */
 if (!array_key_exists('id', $_GET)) {
-    header('HTTP/1.0 400 Bad Request');
+    http_response_code(400);
     $result = [];
     $result['result'] = 400;
     $result['content'] = $_GET;
@@ -32,7 +32,7 @@ $query = "SELECT post_content FROM `wp_posts` WHERE post_status = 'publish' and 
 $result = $mysqli->query($query);
 
 if (!($row = $result->fetch_assoc())) {
-    header('HTTP/1.0 404 Not Found');
+    http_response_code(404);
     $result = [];
     $result['result'] = 404;
     $result['content'] = $_GET;

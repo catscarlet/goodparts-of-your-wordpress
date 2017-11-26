@@ -26,7 +26,7 @@
 
 - Linux
 - MySQL，需要 Wordpress 数据库访问权限
-- PHP
+- PHP （5.4及以上；建议使用7.0以上版本）
 
 #### 客户端
 
