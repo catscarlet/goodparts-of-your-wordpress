@@ -4,7 +4,7 @@ This project is for displaying specific articles of your wordpress.
 
 Writing front-end with vue2 + vue-router, back-end with PHP.
 
-These are used：vue2、vue-router、axios、wordpress-autop.
+These are used：vue2, vue-router, axios, wordpress-autop.
 
 ## Introduction
 
