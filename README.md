@@ -1,5 +1,7 @@
 # The good parts of your wordpress
 
+**[README in English, Click here](https://github.com/catscarlet/goodparts-of-your-wordpress/blob/master/README_EN.md)**
+
 这个项目是用来展示你博客中精选出来的文章用的。项目名取自 **O'Reilly** 的梗：**The Good Parts**。
 
 项目前端主要使用 vue2 + vue-router 编写，后端使用 PHP 编写。
