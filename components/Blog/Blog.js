@@ -26,35 +26,28 @@ export default {
             var self = this;
             this.$axios.get('./api/readlist.php')
                 .then(function(response) {
-                    //console.log(response.data);
                     self.list = response.data;
                     self.count = self.list.length;
                     self.itemlist = self.list.slice(self.pointer, self.itemperpage);
-                    //console.log(self.itemlist);
                 })
                 .catch(function(error) {
-                    //console.log(error);
                 });
         },
         prev: function() {
             var self = this;
             if (self.pointer > 0) {
-                //console.log('before: ' + self.pointer);
                 self.pointer = self.pointer - self.itemperpage;
                 self.itemlist = self.list.slice(self.pointer, self.pointer + self.itemperpage);
                 self.page--;
             }
-            //console.log('after: ' + self.pointer);
         },
         next: function() {
             var self = this;
             if (self.pointer + self.itemperpage < self.count) {
-                //console.log('before: ' + self.pointer);
                 self.pointer = self.pointer + self.itemperpage;
                 self.itemlist = self.list.slice(self.pointer, self.pointer + self.itemperpage);
                 self.page++;
             }
-            //console.log('after: ' + self.pointer);
         },
         show: function(id, event) {
             var self = this;
@@ -63,7 +56,6 @@ export default {
                     self.draw(id, response.data.content);
                 })
                 .catch(function(error) {
-                    //console.log(error);
                 });
         },
         draw: function(id, content) {
