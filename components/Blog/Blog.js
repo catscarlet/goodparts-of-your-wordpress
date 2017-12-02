@@ -67,39 +67,28 @@ export default {
                 });
         },
         draw: function(id, content) {
+            function nocaption(contentp) {
+                var regexp1 = new RegExp(/\[caption .*\"\]/, 'g');
+                var regexp2 = new RegExp(/(\<img.*\>)(.*)\[\/caption\]/, 'g');
+                contentp = contentp.replace(regexp1, '<br>');
+                contentp = contentp.replace(regexp2, function(match, p1, p2) {
+                    return p1 + '<br>' + p2;
+                });
+                return contentp;
+            }
+
+            var contentp;
             var self = this;
             this.list.forEach(function(v, i) {
                 if (v.ID == id) {
-                    //console.log(v.ID);
-                    //console.log(v.post_title);
-                    //console.log(v.permalink);
                     self.content.title = v.post_title;
                     self.content.link = v.permalink;
                 }
             });
-            //console.log(content);
-            var contentp = this.$autop(content);
-            //console.log(contentp);
-            if (contentp.indexOf('[caption') >= 0) {
-                //console.log('contentps中包含caption');
+            contentp = this.$autop(content);
+            contentp = nocaption(contentp);
 
-                var regexp1 = new RegExp(/\[caption .*\"\]/, 'g');
-                var regexp2 = new RegExp(/(\<img.*\>)(.*)\[\/caption\]/, 'g');
-
-                //console.log(contentp.match(regexp1));
-                contentp = contentp.replace(regexp1, '<br>');
-
-                //console.log(contentp.match(regexp2));
-                contentp = contentp.replace(regexp2, function(match, p1, p2) {
-                    //console.log(p1);
-                    //console.log(p2);
-                    return p1 + '<br>' + p2;
-
-                });
-
-            }
             this.content.content = contentp;
         }
     }
-
 };
