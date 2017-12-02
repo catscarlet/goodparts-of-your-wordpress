@@ -59,6 +59,14 @@ export default {
                 });
         },
         draw: function(id, content) {
+            function maxwidth(contentp) {
+                var regexp1 = new RegExp(/(\<img[^>]*)(\>)/, 'g');
+                contentp = contentp.replace(regexp1, function(match, p1, p2) {
+                    return p1 + ' style="max-width: 100%" ' + p2;
+                });
+                return contentp;
+            }
+
             function nocaption(contentp) {
                 var regexp1 = new RegExp(/\[caption .*\"\]/, 'g');
                 var regexp2 = new RegExp(/(\<img.*\>)(.*)\[\/caption\]/, 'g');
@@ -78,6 +86,7 @@ export default {
                 }
             });
             contentp = this.$autop(content);
+            contentp = maxwidth(contentp);
             contentp = nocaption(contentp);
 
             this.content.content = contentp;
