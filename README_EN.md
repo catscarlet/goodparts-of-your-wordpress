@@ -40,8 +40,9 @@ This project is for displaying **specific articles** of your wordpress. You can 
 
 1. Run **yarn install**
 2. Run **yarn test** ,or run **yarn build**
+3. Edit the content in `index.html`
 
-Copy index.html, favicon.ico, dist/ and image/Ham_Shankx84.png to the server.
+Copy `index.html`, `favicon.ico`, `dist/` and `image/Ham_Shankx84.png` to the server.
 
 #### Server Side (API)
 
