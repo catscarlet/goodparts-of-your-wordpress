@@ -14,7 +14,6 @@ export default {
             page: 1
         };
     },
-
     created() {
         this.getlist();
     },

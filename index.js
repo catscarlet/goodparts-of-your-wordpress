@@ -11,5 +11,5 @@ Vue.prototype.$autop = autop;
 Vue.config.devtools = true;
 
 const app = new Vue({
-    router
+    router,
 }).$mount('#app');
