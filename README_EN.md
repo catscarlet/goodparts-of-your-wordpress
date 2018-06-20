@@ -48,7 +48,7 @@ Copy `index.html`, `favicon.ico`, `dist/` and `image/Ham_Shankx84.png` to the se
 
 Copy all the files in `api/` to the server
 
-1. `api/config.php` is the configuration to the database. Edit it for your own config.
+1. `api/config.php` is the configuration to the database and allowed_referers. Edit it for your own config.
 2. `api/generate_list.php` is the list generator. Permalink is off by default. If you want to show permalink below your article, please edit the regex by yourself.
 3. Run `generate_list.php` will generate the list. One article each line. Delete these which you don't want to display, and save it as json file.
 4. Edit `api/readlist.php` for the json file.
