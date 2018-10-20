@@ -80,7 +80,7 @@ You can and you should delete the `generate_list.php` for security.
 └── robots.txt
 ```
 
-## Known bugs.
+## Known Issues.
 
 1. `generate_list.php` use `echo` instead of using `json_encode`. Something wrong will happen if there are some char that need to be `ESCAPED`
 2. Reflash the page will return to the first page, bucause it doesn't use vue-router as articles loader.
