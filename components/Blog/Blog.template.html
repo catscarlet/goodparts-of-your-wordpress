@@ -31,7 +31,7 @@
                         <a v-on:click="prev" href="javascript:void(0)">上一页</a>
                     </div>
                     <div class="list-bar-nav">
-                        <span>{{page}}</span>
+                        <span v-if="maxpage">{{page}} / {{maxpage}}</span>
                     </div>
                     <div class="list-bar-button">
                         <a v-on:click="next" href="javascript:void(0)">下一页</a>

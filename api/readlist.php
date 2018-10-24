@@ -3,8 +3,10 @@
 header('Content-Type: text/json');
 include_once 'config.php';
 
-if (!array_key_exists('HTTP_REFERER', $_SERVER) || !in_array(parse_url($_SERVER['HTTP_REFERER'])['host'], $allowed_referers)) {
-    reject();
+if (isset($allowed_referers)) {
+    if (!array_key_exists('HTTP_REFERER', $_SERVER) || !in_array(parse_url($_SERVER['HTTP_REFERER'])['host'], $allowed_referers)) {
+        reject();
+    }
 }
 
 $list = file_get_contents('./list.json');
@@ -16,7 +18,7 @@ function reject()
     http_response_code(403);
     $result = [];
     $result['result'] = 403;
-    $result['content'] = $_SERVER['HTTP_REFERER'];
+    $result['content'] = '\''.parse_url($_SERVER['HTTP_REFERER'])['host'].'\' is not a loading the List JavaScript API has not been added to the list of allowed referrers. Please check the referrer settings of your API.';
     $rst = json_encode($result, JSON_UNESCAPED_UNICODE + JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES);
 
     echo $rst;

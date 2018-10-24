@@ -1,24 +1,28 @@
 export default {
     data: function() {
-        return {
+        let datatpl = {
             content: {
                 'title': '',
                 'link': '',
-                'content': ''
+                'content': '',
             },
             list: [],
             'pointer': 0,
-            itemlist: [],
             count: 0,
             itemperpage: 8,
-            page: 1
+            page: null,
+            maxpage: null,
         };
+        datatpl.itemlist = new Array(datatpl.itemperpage);
+        datatpl.itemlist.fill({});
+
+        return datatpl;
     },
     created() {
         this.getlist();
     },
     watch: {
-        '$route': 'getlist'
+        '$route': 'getlist',
     },
     methods: {
         getlist: function(id, event) {
@@ -28,8 +32,11 @@ export default {
                     self.list = response.data;
                     self.count = self.list.length;
                     self.itemlist = self.list.slice(self.pointer, self.itemperpage);
+                    self.page = 1;
+                    self.maxpage = Math.ceil(self.count / self.itemperpage);
                 })
                 .catch(function(error) {
+                    self.itemlist = [{post_title: '加载出错'}];
                 });
         },
         prev: function() {
@@ -49,6 +56,9 @@ export default {
             }
         },
         show: function(id, event) {
+            if (!id) {
+                return;
+            }
             var self = this;
             this.$axios.get('./api/get_content.php?id=' + id)
                 .then(function(response) {
@@ -89,6 +99,6 @@ export default {
             contentp = nocaption(contentp);
 
             this.content.content = contentp;
-        }
-    }
+        },
+    },
 };
