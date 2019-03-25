@@ -14,7 +14,6 @@ This project is for displaying **specific articles** of your wordpress. You can 
 
 ## Demo
 
-[English Demo](www.catscarlet.com/site/goodparts-of-your-wordpress/) Notice that I didn't write in English so there aren't many articles. You can also check the Chinese demo.
 
 [石樱灯笼博客 - The Good Parts](https://articles.catscarlet.com/)
 
