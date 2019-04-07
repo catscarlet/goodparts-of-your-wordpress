@@ -1,5 +1,7 @@
 # The good parts of your wordpress
 
+**This repository is archived. Please refer to: <https://github.com/catscarlet/goodparts-of-your-wordpress-zwei>**
+
 This project is for displaying specific articles of your wordpress.
 
 Writing front-end with vue2 + vue-router, back-end with PHP.
