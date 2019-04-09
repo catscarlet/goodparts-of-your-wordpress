@@ -1,5 +1,7 @@
 # The good parts of your wordpress
 
+**这个项目已经停止维护，请移步至新项目<https://github.com/catscarlet/goodparts-of-your-wordpress-zwei>**
+
 **[README in English, Click here](https://github.com/catscarlet/goodparts-of-your-wordpress/blob/master/README_EN.md)**
 
 这个项目是用来展示你博客中精选出来的文章用的。项目名取自 **O'Reilly** 的梗：**The Good Parts**。
