@@ -1,6 +1,6 @@
 # The good parts of your wordpress
 
-**这个项目已经停止维护，请移步至新项目<https://github.com/catscarlet/goodparts-of-your-wordpress-zwei>**
+**这个项目已经停止维护，请移步至新项目: <https://github.com/catscarlet/goodparts-of-your-wordpress-zwei>**
 
 **[README in English, Click here](https://github.com/catscarlet/goodparts-of-your-wordpress/blob/master/README_EN.md)**
 
@@ -17,10 +17,6 @@
 这个项目的目的是制作另一个展示页，用来展示一部分你博客中一部分内容的用的。
 
 像我这种人博客中不论吃喝游玩还是技术教程什么都写，在一定场合下，博客内容展示就会非常尴尬。这时候如果有一个独立的展示页面，只展示特定的文章，就可以避免这种尴尬了。
-
-## Demo
-
-[石樱灯笼博客 - The Good Parts](https://articles.catscarlet.com/)
 
 ## 安装
 

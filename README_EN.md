@@ -1,6 +1,6 @@
 # The good parts of your wordpress
 
-**This repository is archived. Please refer to: <https://github.com/catscarlet/goodparts-of-your-wordpress-zwei>**
+**This repository is archived. Please refer to new project: <https://github.com/catscarlet/goodparts-of-your-wordpress-zwei>**
 
 This project is for displaying specific articles of your wordpress.
 
@@ -13,11 +13,6 @@ These are used：vue2, vue-router, axios, wordpress-autop.
 The articles is from the wordpress database of yourself, so you have to have your Wordpress and the access to the database.
 
 This project is for displaying **specific articles** of your wordpress. You can make a standalone list, see details below.
-
-## Demo
-
-
-[石樱灯笼博客 - The Good Parts](https://articles.catscarlet.com/)
 
 ## Installation
 
